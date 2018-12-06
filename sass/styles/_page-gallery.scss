@@ -1,0 +1,29 @@
+/*--------------------------------------------------------------
+# Galleries
+--------------------------------------------------------------*/
+.page-gallery {
+	.envira-pagination-load-more {
+		color: #fff !important;
+		background: $blue !important;
+		padding: 10px 25px !important;
+		display: inline-block !important;
+		font-size: 1em !important;
+		text-transform: uppercase !important;
+		font-family: 'Raleway Regular' !important;
+		border-radius: 0 !important;
+		margin: 15px 0 !important;
+		@include transition(all 0.3s ease-in-out);
+		display: table !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
+		&:hover,
+		&:focus {
+			text-decoration: none !important;
+			background: $grayDarker !important;
+			color: #fff !important;
+		}
+	}
+	.envira-gallery-wrap {
+		margin-bottom: 80px;
+	}
+}

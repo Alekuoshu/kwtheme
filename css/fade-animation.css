@@ -1,0 +1,24 @@
+/* fade effect */
+#carousel-home .carousel-inner .item {
+	opacity: 0;
+	-webkit-transition-property: opacity;
+	-moz-transition-property: opacity;
+	-o-transition-property: opacity;
+	transition-property: opacity;
+}
+#carousel-home .carousel-inner .active {
+	opacity: 1;
+}
+#carousel-home .carousel-inner .active.left,
+#carousel-home .carousel-inner .active.right {
+	left: 0;
+	opacity: 0;
+	z-index: 1;
+}
+#carousel-home .carousel-inner .next.left,
+#carousel-home .carousel-inner .prev.right {
+	opacity: 1;
+}
+#carousel-home .carousel-control {
+	z-index: 2;
+}

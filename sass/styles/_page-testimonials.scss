@@ -1,0 +1,22 @@
+.page-testimonials {
+	.testimonio-item:nth-child(odd) {
+		background: #eee;
+		padding: 15px 30px;
+		margin-bottom: 20px;
+	}
+	.testimonio-item:nth-child(even) {
+		background: #f9f9f9;
+		padding: 15px 30px;
+		margin-bottom: 20px;
+	}
+	.fa.fa-quote-right {
+		display: table;
+		margin-left: auto;
+		font-size: 1.8em;
+		color: $blue;
+	}
+	.fa.fa-quote-left {
+		font-size: 1.8em;
+		color: $blue;
+	}
+}

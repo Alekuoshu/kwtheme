@@ -1,0 +1,165 @@
+#section-testimonials {
+	background: $grayDark;
+	padding-top: 60px;
+	padding-bottom: 20px;
+
+	@media only screen and (max-width: 767px) {
+		padding-top: 30px;
+	}
+
+	.testimonials {
+		.section-title {
+			text-align: center;
+			text-transform: uppercase;
+			font-size: 3em;
+			letter-spacing: 1px;
+			margin-bottom: 60px;
+			color: #fff;
+
+			@media only screen and (min-width: 768px) and (max-width: 1199px) {
+				font-size: 2.5em;
+			}
+
+			@media only screen and (min-width: 481px) and (max-width: 767px) {
+				font-size: 2em;
+			}
+
+			@media only screen and (max-width: 480px) {
+				font-size: 1.5em;
+				margin-bottom: 30px;
+			}
+		}
+
+		.carousel-inner {
+			width: 700px;
+			@include center-table();
+			height: 200px;
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				width: 630px;
+			}
+
+			@media only screen and (max-width: 767px) {
+				width: 95%;
+				font-size: 0.8em;
+				text-align: center;
+				height: 185px;
+			}
+
+			&:hover {
+				cursor: -webkit-grab;
+				cursor: -moz-grab;
+				cursor: grab;
+			}
+		}
+
+		.item {
+			font-size: 1.3em;
+			color: $grayLight;
+			line-height: 1.2;
+		}
+
+		.testimonio-title {
+			font-family: 'Great Vibes';
+			font-size: 2em;
+			color: $grayLight;
+
+			@media only screen and (max-width: 767px) {
+				font-size: 1.8em;
+			}
+		}
+
+		.carousel-control.left {
+			left: -60px;
+			font-size: 3.5em;
+			@include transition(all 0.3s ease-in-out);
+			background-image: none;
+
+			@media only screen and (min-width: 980px) and (max-width: 1199px) {
+				left: -95px;
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				left: -40px;
+			}
+
+			@media only screen and (max-width: 767px) {
+				display: none;
+			}
+
+			&:hover {
+				background-image: none;
+			}
+		}
+
+		.carousel-control.right {
+			right: -60px;
+			font-size: 3.5em;
+			@include transition(all 0.3s ease-in-out);
+			background-image: none;
+
+			@media only screen and (min-width: 980px) and (max-width: 1199px) {
+				right: -95px;
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				right: -40px;
+			}
+
+			@media only screen and (max-width: 767px) {
+				display: none;
+			}
+
+			&:hover {
+				background-image: none;
+			}
+		}
+
+		p {
+			margin-bottom: 50px;
+		}
+
+		.btn-style-3 {
+			@include center-table();
+			padding: 25px 70px;
+			font-size: 1.4em;
+			font-family: 'Raleway Medium';
+			margin-top: 0;
+			margin-bottom: 50px;
+
+			@media only screen and (max-width: 979px) {
+				padding: 18px 40px;
+				font-size: 1.2em;
+			}
+		}
+
+		.star-rating {
+			@include center-table();
+		}
+
+		.star-rating li i {
+			color: $yellow;
+			font-size: 1.8em;
+		}
+
+		.row {
+			width: 700px;
+			@include center-table();
+
+			@media only screen and (max-width: 767px) {
+				width: 100%;
+				text-align: center;
+			}
+		}
+
+		.average,
+		.reviews {
+			color: $grayLight;
+			font-size: 1.2em;
+
+			@media only screen and (max-width: 767px) {
+				margin-bottom: 15px;
+			}
+		}
+	}
+}

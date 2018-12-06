@@ -1,0 +1,66 @@
+.page-contact {
+	aside {
+		section {
+			padding: 10px;
+			box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
+			margin-bottom: 30px;
+		}
+	}
+	main {
+		padding-top: 0;
+	}
+	.entry-content {
+		margin-top: 0;
+	}
+	.wpforms-form {
+		padding: 0px 20px;
+		padding-bottom: 60px;
+		box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
+		.wpforms-field {
+			margin-bottom: 20px;
+		}
+		input.wpforms-field-medium, select.wpforms-field-medium, .wpforms-field-row.wpforms-field-medium {
+			max-width: 100% !important;
+			width: 100% !important;
+		}
+		.wpforms-submit-container {
+			position: relative;
+			display: flex !important;
+			align-items: center !important;
+			justify-content: center !important;
+		}
+		input.wpforms-field-medium, select.wpforms-field-medium, .wpforms-field-row.wpforms-field-medium {
+			max-width: 100% !important;
+		}
+		.wpforms-field.wpforms-field-name {
+			padding-top: 30px;
+		}
+		button#wpforms-submit-627,
+		button#wpforms-submit-628 {
+			display: table !important;
+			margin-left: auto !important;
+			margin-right: auto !important;
+			padding: 12px 35px;
+			color: #fff;
+			background: $blue;
+			font-size: 1em;
+			text-transform: uppercase;
+			font-family: 'Raleway Regular';
+			border-radius: 0;
+			margin: 15px 0;
+			@include transition(all 0.3s ease-in-out);
+			&:hover,
+			&:focus {
+				text-decoration: none;
+				background: $grayDarker;
+				color: #fff;
+			}
+		}
+	}
+	#black-studio-tinymce-12,
+	#black-studio-tinymce-15 {
+		padding: 10px;
+		box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
+		margin-bottom: 30px;
+	}
+}

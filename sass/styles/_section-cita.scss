@@ -1,0 +1,57 @@
+#section-cita {
+	background: $blue;
+
+	.cita {
+		p {
+			color: #fff;
+			font-size: 2.2em;
+			margin: 0;
+			@include center-table();
+			padding-top: 20px;
+
+			@media only screen and (min-width: 980px) and (max-width: 1199px) {
+				font-size: 1.5em;
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				font-size: 1.4em;
+			}
+
+			@media only screen and (max-width: 767px) {
+				font-size: 1.8em;
+				padding-top: 10px;
+				text-align: center;
+				line-height: 1.2;
+			}
+
+			@media only screen and (max-width: 480px) {
+				font-size: 1.5em;
+			}
+		}
+
+		.btn-style-3 {
+			font-size: 1.5em;
+			padding: 25px 50px;
+			@include center-table();
+			font-family: 'Raleway Medium';
+
+			@media only screen and (max-width: 1199px) {
+				font-size: 1.2em;
+				padding: 20px 40px;
+			}
+
+			&:hover,
+			&:focus {
+				background: $grayDark;
+			}
+		}
+
+		// Styles to english version
+		.english {
+			p {
+				padding-top: 8px;
+				line-height: 1;
+			}
+		}
+	}
+}

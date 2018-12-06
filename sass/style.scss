@@ -1,0 +1,3050 @@
+/*!
+Theme Name: Koshucas Theme
+Theme URI: http://underscores.me/
+Author: Alekuoshu
+Author URI: https://koshucasweb.com.ve
+Description: Based theme by koshucas web for work about wp
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: kwtheme
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Koshucas Theme is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+# Fonts
+--------------------------------------------------------------*/
+
+// Raleway
+@font-face {
+	font-family: 'Raleway Bold';
+	src: url('fonts/raleway/Raleway-Bold.ttf');
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+  font-family: 'Raleway ExtraBold';
+  src: url('fonts/raleway/Raleway-ExtraBold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+	font-family: 'Raleway ExtraLight';
+	src: url('fonts/raleway/Raleway-ExtraLight.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Raleway Heavy';
+	src: url('fonts/raleway/Raleway-Heavy.ttf');
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Raleway Light';
+	src: url('fonts/raleway/Raleway-Light.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Raleway Medium';
+	src: url('fonts/raleway/Raleway-Medium.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Raleway Regular';
+	src: url('fonts/raleway/Raleway-Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Raleway SemiBold';
+	src: url('fonts/raleway/Raleway-SemiBold.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Raleway Thin';
+	src: url('fonts/raleway/Raleway-Thin.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+// Great Vives
+@font-face {
+	font-family: 'Great Vibes';
+	src: url('fonts/GreatVibes-Regular.otf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+// Keep Calm
+@font-face {
+	font-family: 'Keep Calm Medium';
+	src: url('fonts/KeepCalm-Medium.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*--------------------------------------------------------------
+# Variables
+--------------------------------------------------------------*/
+
+// Colors
+// -------------------------
+$black:                 #000;
+$grayDarker:            #222;
+$grayDark:              #323232;
+$gray:                  #e5e5e5;
+$grayLight:             #cbcbcb;
+$grayLighter:           #F2F2F2;
+$white:                 #fff;
+$blue:                  #0b122e;
+$blueDark:              #3B4B60;
+$green:                 #25A75D;
+$red:                   #9d261d;
+$yellow:                #f8af3a;
+$orange:                #f89406;
+$pink:                  #c3325f;
+$purple:                #7a43b6;
+
+
+// Scaffolding
+// -------------------------
+$bodyBackground:        $white;
+$textColor:             #444;
+
+
+// Links
+// -------------------------
+$linkColor:             $blue;
+$linkColorHover:        darken($linkColor, 15%);
+
+
+// Typography
+// -------------------------
+$sansFontFamily:        'Raleway Regular', "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serifFontFamily:       Georgia, "Times New Roman", Times, serif;
+$monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
+
+$baseFontSize:          16px;
+$baseFontFamily:        $sansFontFamily;
+$baseLineHeight:        20px;
+$altFontFamily:         $serifFontFamily;
+
+$headingsFontFamily:    'Raleway Regular'; // empty to use BS default, $baseFontFamily
+$headingsFontWeight:    bold;   // instead of browser default, bold
+$headingsColor:         $blue; // empty to use BS default, $textColor
+
+
+// Z-index master list
+// -------------------------
+// Used for a bird's eye view of components dependent on the z-axis
+// Try to avoid customizing these :)
+$zindexDropdown:          1000;
+$zindexPopover:           1010;
+$zindexTooltip:           1030;
+$zindexFixedNavbar:       1030;
+$zindexModalBackdrop:     1040;
+$zindexModal:             1050;
+
+/*--------------------------------------------------------------
+# Mixins
+# @include transition(all 0.3s ease-in-out);
+# @include center-table();
+# @include flex-center();
+# @include transition-delay(0.8s);
+# @include transition-duration(1s);
+# @include rotate(3deg);
+# @include scale(1.2);
+# @include background-size(100%);
+# @include text-overflow();
+# @include box-shadow(0 0 24px rgba(0,0,0,.5));
+--------------------------------------------------------------*/
+
+// Center block
+@mixin center-table() {
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Flex
+@mixin flex-center() {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+// Transitions
+@mixin transition($transition) {
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	-o-transition: $transition;
+	transition: $transition;
+}
+@mixin transition-delay($transition-delay) {
+	-webkit-transition-delay: $transition-delay;
+	-moz-transition-delay: $transition-delay;
+	-o-transition-delay: $transition-delay;
+	transition-delay: $transition-delay;
+}
+@mixin transition-duration($transition-duration) {
+	-webkit-transition-duration: $transition-duration;
+	-moz-transition-duration: $transition-duration;
+	-o-transition-duration: $transition-duration;
+	transition-duration: $transition-duration;
+}
+
+// Transformations
+@mixin rotate($degrees) {
+	-webkit-transform: rotate($degrees);
+	-moz-transform: rotate($degrees);
+	-ms-transform: rotate($degrees);
+	-o-transform: rotate($degrees);
+	transform: rotate($degrees);
+}
+@mixin scale($ratio) {
+	-webkit-transform: scale($ratio);
+	-moz-transform: scale($ratio);
+	-ms-transform: scale($ratio);
+	-o-transform: scale($ratio);
+	transform: scale($ratio);
+}
+
+// Background sizing
+@mixin background-size($size) {
+	-webkit-background-size: $size;
+	-moz-background-size: $size;
+	-o-background-size: $size;
+	background-size: $size;
+}
+
+// Text overflow
+// -------------------------
+// Requires inline-block or block for proper styling
+@mixin text-overflow() {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+// Box shadows
+@mixin box-shadow($shadow) {
+	-webkit-box-shadow: $shadow;
+	-moz-box-shadow: $shadow;
+	box-shadow: $shadow;
+}
+
+.error-404 {
+	.page-title {
+		font-size: 1em;
+    line-height: 1.5;
+	}
+}
+
+.btn-style-1,
+.elm-button {
+	color: #fff;
+	background: $blue;
+	padding: 10px 25px;
+	display: inline-block;
+	font-size: 1em;
+	text-transform: uppercase;
+	font-family: 'Raleway Regular';
+	border-radius: 0;
+	margin: 15px 0;
+	@include transition(all 0.3s ease-in-out);
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		background: $grayDarker;
+		color: #fff;
+	}
+}
+
+.btn-style-2 {
+	color: #fff;
+	background: $grayDark;
+	padding: 10px 25px;
+	display: inline-block;
+	font-size: 1em;
+	text-transform: uppercase;
+	font-family: 'Raleway Regular';
+	border-radius: 0;
+	margin: 15px 0;
+	@include transition(all 0.3s ease-in-out);
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		background: $blue;
+		color: #fff;
+	}
+}
+
+.btn-style-3 {
+	color: $blue;
+	background: $grayLight;
+	padding: 10px 25px;
+	display: inline-block;
+	font-size: 1em;
+	text-transform: uppercase;
+	font-family: 'Raleway Regular';
+	border-radius: 0;
+	margin: 15px 0;
+	@include transition(all 0.3s ease-in-out);
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		background: $blue;
+		color: #fff;
+	}
+}
+
+/*--------------------------------------------------------------
+# Columns
+--------------------------------------------------------------*/
+$columns: (
+	1: 100%,
+	2: 50%,
+	3: 33.33%,
+	4: 25%,
+	5: 20%,
+	6: 16.66%,
+	7: 14.28%,
+	8: 12.5%,
+	9: 11.11%
+);
+
+$columns__margin: 3.8%;
+
+/*--------------------------------------------------------------
+# Comments
+--------------------------------------------------------------*/
+#comments {
+	.comment-content a {
+		word-wrap: break-word;
+	}
+
+	.bypostauthor {
+		display: block;
+	}
+
+	input[type="submit"] {
+		color: #fff !important;
+		background: $blue;
+		padding: 12px 25px !important;
+		display: inline-block;
+		font-size: 1em;
+		text-transform: uppercase;
+		font-family: 'Raleway Regular';
+		border-radius: 0 !important;
+		margin: 15px 0;
+		@include transition(all 0.3s ease-in-out);
+
+		@media only screen and (max-width: 480px) {
+			padding: 12px 40px !important;
+			font-size: 0.8em;
+		}
+
+		&:hover,
+		&:focus {
+			text-decoration: none;
+			background: $grayDarker;
+			color: #fff;
+		}
+	}
+
+	.comment-respond,
+	.entry-pings,
+	.entry-comments {
+		color: #444;
+		padding: 20px 45px 40px 45px;
+		border: 1px solid #ccc;
+		overflow: hidden;
+		background: #fff;
+		-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+		-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+		box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+		border-left: 4px solid #444;
+
+		@media only screen and (max-width: 480px) {
+			padding: 20px;
+		}
+	}
+
+	.entry-comments h3 {
+		font-size: 30px;
+		margin-bottom: 30px;
+	}
+
+	.comment-respond h3,
+	.entry-pings h3 {
+		font-size: 20px;
+		margin-bottom: 30px;
+	}
+
+	.comment-respond {
+		padding-bottom: 5%;
+		margin: 20px 1px 20px 1px;
+		border-left: none !important;
+	}
+
+	.comment-header {
+		color: #adaeb3;
+		font-size: 14px;
+		margin-bottom: 20px;
+	}
+
+	.comment-header cite a {
+		border: none;
+		font-style: normal;
+		font-size: 16px;
+		font-weight: bold;
+	}
+
+	.comment-header .comment-meta a {
+		border: none;
+		color: #adaeb3;
+	}
+
+	li.comment {
+		background-color: #fff;
+		border-right: none;
+	}
+
+	.comment-content {
+		clear: both;
+		overflow: hidden;
+	}
+
+	.comment-list li {
+		font-size: 14px;
+		padding: 20px 30px 20px 50px;
+		border-bottom: 1px solid #ddd;
+
+		@media only screen and (max-width: 480px) {
+			padding: 20px;
+		}
+	}
+
+	.comment-list .children {
+		margin-top: 40px;
+		border: 1px solid #ccc;
+		margin-left: 0;
+		padding-left: 0;
+	}
+
+	.comment-list li li {
+		background-color: #f5f5f6;
+		margin-bottom: 0;
+	}
+
+	.comment-list li li li {
+		background-color: #fff;
+	}
+
+	.comment-respond input[type="email"],
+	.comment-respond input[type="text"],
+	.comment-respond input[type="url"] {
+		width: 50%;
+	}
+
+	.comment-respond label {
+		display: block;
+		margin-right: 12px;
+	}
+
+	.entry-comments .comment-author {
+		margin-bottom: 0;
+		position: relative;
+	}
+
+	.entry-comments .comment-author img {
+		border-radius: 50%;
+		border: 5px solid #fff;
+		left: -80px;
+		top: -5px;
+		position: absolute;
+		width: 60px;
+	}
+
+	.entry-pings .reply {
+		display: none;
+	}
+
+	.bypostauthor {}
+
+	.form-allowed-tags {
+		background-color: #f5f5f5;
+		font-size: 16px;
+		padding: 24px;
+	}
+
+	.comment-reply-link {
+		cursor: pointer;
+		background-color: #444;
+		border: none;
+		border-radius: 3px;
+		color: #fff;
+		font-size: 12px;
+		font-weight: 300;
+		letter-spacing: 1px;
+		padding: 4px 10px 4px;
+		text-transform: uppercase;
+		width: auto;
+	}
+
+	.comment-reply-link:hover {
+		color: #fff;
+	}
+
+	.comment-notes {
+		display: none;
+	}
+
+	.comment-list {
+		list-style: none;
+		padding-left: 0;
+	}
+
+	footer {
+		background: transparent;
+	}
+}
+footer {
+	color: #fff;
+	background: $grayDark;
+
+	.copyright {
+		text-align: center;
+		padding: 25px 0;
+
+		p {
+			margin-bottom: 0;
+			line-height: 2;
+		}
+
+		a {
+			color: #fff;
+		}
+	}
+
+	.logo-footer {
+		text-align: center;
+		padding-top: 80px;
+		padding-bottom: 50px;
+
+		@media only screen and (max-width: 767px) {
+			padding-top: 40px;
+			padding-bottom: 30px;
+		}
+	}
+
+	#menu-map-facebook {
+		.menu-footer {
+			@media only screen and (max-width: 767px) {
+				text-align: center;
+			}
+
+			.widget_title {
+				color: #fff;
+				text-transform: uppercase;
+				font-size: 1.2em;
+				letter-spacing: 2px;
+				margin-left: 20px;
+				margin-bottom: 18px;
+			}
+
+			.menu {
+				margin-left: 15px;
+			}
+
+			.menu a {
+				color: #fff;
+				padding: 2px 15px;
+				@include transition(all 0.2s ease-in-out);
+
+				@media only screen and (max-width: 480px) {
+					padding: 5px 15px;
+				}
+
+				&:hover,
+				&:focus {
+					color: $blue;
+					background: #fff;
+					text-decoration: none;
+					padding-left: 25px;
+				}
+			}
+
+			.footer-menu {
+				width: 80%;
+
+				@media only screen and (max-width: 767px) {
+					width: 100%;
+					margin-bottom: 30px;
+				}
+			}
+		}
+	}
+
+	.map-footer {
+		display: table;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.socials {
+		margin-top: 50px;
+
+		@media only screen and (max-width: 767px) {
+			margin-top: 40px;
+			margin-bottom: 40px;
+		}
+
+		ul {
+			@include center-table();
+		}
+
+		ul a,
+		.post-edit-link {
+			color: #fff;
+			font-size: 1.3em;
+			@include transition(all 0.2s ease-in-out);
+
+			@media only screen and (min-width: 980px) and (max-width: 1199px) {
+				font-size: 1em;
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				font-size: 0.9em;
+			}
+
+			@media only screen and (max-width: 480px) {
+				font-size: 1em;
+			}
+
+			&:hover,
+			&:focus {
+				color: $blue;
+			}
+		}
+
+		ul li,
+		.wpcw-widget-social ul li:not(.has-label) {
+			margin-right: 28px;
+
+			@media only screen and (min-width: 980px) and (max-width: 1199px) {
+				margin-right: 20px;
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				margin-right: 10px;
+			}
+
+			@media only screen and (max-width: 480px) {
+				margin-right: 18px;
+			}
+		}
+
+		ul li:last-child {
+			margin-right: 0 !important;
+		}
+	}
+
+	.facebook {
+		@include center-table();
+
+		.widget-title {
+			display: none;
+		}
+
+		.fb-page {
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				height: 350px !important;
+				max-width: 200px !important;
+			}
+
+			@media only screen and (max-width: 480px) {
+				max-width: 280px !important;
+			}
+
+			span {
+				@media only screen and (min-width: 768px) and (max-width: 979px) {
+					height: 350px !important;
+					max-width: 200px !important;
+				}
+
+				@media only screen and (max-width: 480px) {
+					max-width: 280px !important;
+				}
+			}
+
+			iframe {
+				@media only screen and (min-width: 768px) and (max-width: 979px) {
+					height: 350px !important;
+					max-width: 200px !important;
+				}
+
+				@media only screen and (max-width: 480px) {
+					max-width: 280px !important;
+				}
+			}
+		}
+	}
+
+	.site-info {
+		@media only screen and (max-width: 480px) {
+			font-size: 0.8em;
+		}
+	}
+}
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+body {
+	color: $textColor;
+	font-family: $sansFontFamily;
+	font-size: $baseFontSize;
+	line-height: $baseLineHeight;
+	background: $bodyBackground;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+	color: $headingsColor;
+	font-family: $headingsFontFamily;
+	line-height: $baseLineHeight;
+	font-weight: $headingsFontWeight;
+}
+
+article h1,
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
+	line-height: 1.2;
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+	margin: 0 1.5em;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	background: $grayLighter;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 10px;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted $gray;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: $gray;
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
+}
+
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+///////////////////////////////////////////////////////////
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	@include center-table;
+}
+
+/*--------------------------------------------------------------
+# Buttons
+--------------------------------------------------------------*/
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	border: 1px solid;
+	border-radius: 3px;
+	color: rgba(0, 0, 0, .8);
+	line-height: 1;
+	padding: .6em 1em .4em;
+
+	&:hover {}
+
+	&:active,
+	&:focus {}
+}
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+	@include clearfix;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+	@include clearfix-after;
+}
+
+/*--------------------------------------------------------------
+# Elemenst
+--------------------------------------------------------------*/
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	/* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+hr {
+	background-color: $grayLighter;
+	border: 0;
+	height: 2px;
+	margin-bottom: 1.5em;
+}
+
+img {
+	height: auto;
+	/* Make sure images are scaled correctly. */
+	max-width: 100%;
+	/* Adhere to container width. */
+}
+
+figure {
+	margin: 1em 0;
+	/* Extra wide images within figure tags don't overflow the content area. */
+}
+
+/*--------------------------------------------------------------
+# Fields
+--------------------------------------------------------------*/
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	border-radius: 3px;
+	padding: 3px;
+
+	&:focus {}
+}
+
+select {}
+
+textarea {
+	width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Links
+--------------------------------------------------------------*/
+a {
+	color: $linkColor;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $linkColorHover;
+	}
+
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
+
+/*--------------------------------------------------------------
+# Lists
+--------------------------------------------------------------*/
+ul,
+ol {
+	margin: 0 0 1.5em 3em;
+}
+
+ul {
+	list-style: disc;
+	margin-left: 10px;
+}
+
+ol {
+	list-style: decimal;
+	margin-left: 10px;
+}
+
+li>ul,
+li>ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+/* Make sure logo link wraps around logo image. */
+.custom-logo-link {
+	display: inline-block;
+}
+
+/*--------------------------------------------------------------
+# Others
+--------------------------------------------------------------*/
+.container,
+.container-fluid {
+	@media (min-width: 980px) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.block {
+	padding: 15px 0;
+}
+
+.jn-holder {
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+
+.jn-holder.jn-holder-block {
+	display: block;
+	width: 100%;
+}
+
+.carousel .carousel-control {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.support {
+	display: none !important;
+}
+
+.page-header {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 3em;
+	margin-bottom: 50px;
+	padding-bottom: 15px;
+	line-height: 1.3;
+
+	@media only screen and (min-width: 768px) and (max-width: 979px) {
+		font-size: 2.5em;
+	}
+
+	@media only screen and (min-width: 481px) and (max-width: 767px) {
+		font-size: 2em;
+	}
+
+	@media only screen and (max-width: 480px) {
+		font-size: 1.5em;
+	}
+}
+
+.jn-responsive {
+	display: inline-block;
+	max-width: 100%;
+
+	@media only screen and (min-width: 481px) and (max-width: 767px) {
+		max-height: 300px;
+	}
+
+	@media only screen and (max-width: 480px) {
+		max-height: 200px;
+	}
+}
+
+.jn-responsive.jn-responsive-block {
+	display: block;
+}
+
+.post-thumbnail,
+.cover-image {
+	margin-bottom: 25px;
+}
+
+.entry-content {
+	margin-top: 15px;
+}
+
+// styles to site main
+.site-main {
+
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		line-height: 1.3;
+
+		@media only screen and (max-width: 480px) {
+			font-size: 1.2em;
+		}
+	}
+
+	footer {
+		background: #fff;
+	}
+
+	li {
+		margin-bottom: 15px;
+	}
+}
+
+.u_next_story.nav-split h3 {
+	padding: 10px 20px !important;
+	height: auto !important;
+	white-space: normal !important;
+	line-height: 1.5 !important;
+}
+header {
+	#header-1 {
+		background: $blue;
+
+		@media only screen and (max-width: 991px) {
+			height: 60px;
+		}
+	}
+
+	#header-2 {
+		background: $grayLighter;
+
+		.col-md-6 {
+			@media (min-width: 768px) {
+				padding: 0;
+			}
+		}
+
+		.address-info {
+			padding: 48px 0;
+
+			@media only screen and (min-width: 768px) and (max-width: 1199px) {
+				padding: 30px 0;
+				font-size: 0.85em;
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				font-size: 0.8em;
+			}
+
+			@media only screen and (max-width: 767px) {
+				padding: 20px 0;
+				text-align: center;
+				font-size: 0.9em;
+				display: none;
+			}
+
+			address {
+				margin: 0;
+				line-height: 1.2;
+				margin-bottom: 15px;
+			}
+
+			p {
+				line-height: 1;
+				margin: 0;
+			}
+
+			address a {
+				text-transform: uppercase;
+				color: $blue;
+				font-family: 'Raleway SemiBold';
+				font-size: 0.95em;
+			}
+
+			.celular,
+			.fijo {
+				color: $blue;
+				font-weight: bold;
+				font-size: 1.2em;
+			}
+
+			.btn-style-1 {
+				padding: 7px 25px;
+			}
+
+			.english {
+				.btn-style-1 {
+					padding: 7px 7px;
+					font-size: 0.8em;
+				}
+			}
+		}
+
+		.logo {
+			padding: 65px 0;
+
+			@media only screen and (max-width: 767px) {
+				padding: 20px 10px;
+			}
+
+			img {
+				width: 100%;
+			}
+		}
+
+		.contact-header {
+			padding: 48px 0;
+			padding-left: 24%;
+
+			@media only screen and (min-width: 768px) and (max-width: 1199px) {
+				padding: 30px 0;
+				padding-left: 0%;
+				font-size: 0.85em;
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				font-size: 0.8em;
+			}
+
+			@media only screen and (max-width: 767px) {
+				padding: 20px 0;
+				padding-left: 0;
+				text-align: center;
+				font-size: 0.9em;
+				display: none;
+			}
+
+			.celular,
+			.fijo {
+				color: $blue;
+				font-weight: bold;
+				font-size: 1.2em;
+			}
+
+			.btn-style-1 {
+				padding: 7px 25px;
+			}
+
+			.english {
+				.btn-style-1 {
+					padding: 7px 7px;
+					font-size: 0.8em;
+				}
+			}
+
+			address {
+				margin: 0;
+				line-height: 1.2;
+				margin-bottom: 15px;
+			}
+
+			p {
+				line-height: 1;
+				margin: 0;
+			}
+
+			address a {
+				text-transform: uppercase;
+				color: $blue;
+				font-family: 'Raleway SemiBold';
+				font-size: 0.95em;
+			}
+		}
+	}
+}
+#home-slider {
+
+	&:hover {
+		cursor: -webkit-grab;
+		cursor: -moz-grab;
+		cursor: grab;
+	}
+
+	.jn-holder {
+		@media only screen and (min-width: 1200px) and (max-width: 1920px) {
+			height: 660px !important;
+		}
+	}
+
+	// caption
+	.item .carousel-caption {
+		text-align: left;
+		text-shadow: none;
+		left: 8%;
+		top: 40%;
+		opacity: 0;
+		@include transition(all .8s ease-in-out);
+
+		@media only screen and (min-width: 980px) and (max-width: 1199px) {
+			font-size: 0.75em;
+			width: 50%;
+		}
+
+		@media only screen and (min-width: 768px) and (max-width: 979px) {
+			font-size: 0.7em;
+			padding: 20px;
+		}
+
+		@media only screen and (min-width: 481px) and (max-width: 767px) {
+			font-size: 0.5em;
+			padding: 15px;
+		}
+
+		@media only screen and (max-width: 480px) {
+			font-size: 0.4em;
+			padding: 5px;
+		}
+
+		@media only screen and (max-width: 400px) {
+			display: none;
+		}
+
+
+		.carousel-content {
+			color: #fff;
+			background: rgba(11, 18, 46, 0.8);
+			padding: 30px;
+			padding-bottom: 60px;
+			max-width: 650px;
+
+			@media only screen and (min-width: 980px) and (max-width: 1199px) {
+				padding: 20px;
+				padding-bottom: 20px;
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				padding: 15px;
+				padding-bottom: 15px;
+			}
+
+			@media only screen and (max-width: 767px) {
+				padding: 10px;
+				padding-bottom: 10px;
+			}
+
+			.title {
+				color: #fff;
+				text-transform: uppercase;
+				font-size: 2.3em;
+				font-family: 'Raleway ExtraLight';
+				letter-spacing: 3px;
+				margin-bottom: 15px;
+
+				@media only screen and (max-width: 767px) {
+					margin-bottom: 10px;
+					margin-top: 10px;
+				}
+			}
+
+			h4 {
+				color: #fff;
+				text-transform: uppercase;
+				font-size: 1.4em;
+				font-family: 'Raleway ExtraLight';
+				letter-spacing: 2px;
+				margin-bottom: 40px;
+
+				@media only screen and (max-width: 767px) {
+					margin-bottom: 15px;
+				}
+			}
+
+			p {
+				margin-bottom: 8px;
+				font-size: 1.5em;
+				letter-spacing: 1px;
+				line-height: 1.2;
+			}
+		}
+
+		.btn-style-1 {
+			font-size: 1.6em;
+			letter-spacing: 3px;
+			margin-top: 30px;
+			font-family: 'Raleway Regular';
+			padding: 10px 20px;
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				margin-top: 10px;
+			}
+
+			@media only screen and (max-width: 480px) {
+				display: none;
+			}
+		}
+	}
+
+	.item.active .carousel-caption {
+		top: 28%;
+		opacity: 1;
+
+		@media only screen and (min-width: 980px) and (max-width: 1199px) {
+			top: 8%;
+		}
+
+		@media only screen and (max-width: 979px) {
+			top: 0%;
+		}
+
+	}
+
+	.carousel-control {
+		color: $blue;
+		opacity: 1;
+		font-size: 4em;
+		@include transition(all 0.3s ease-in-out);
+	}
+
+	.carousel-control.left {
+		left: -30px;
+		@include transition(all 0.3s ease-in-out);
+		background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .1) 0, rgba(0, 0, 0, .0001) 100%);
+		background-image: -o-linear-gradient(left, rgba(0, 0, 0, .1) 0, rgba(0, 0, 0, .0001) 100%);
+		background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .1)), to(rgba(0, 0, 0, .0001)));
+		background-image: linear-gradient(to right, rgba(0, 0, 0, .1) 0, rgba(0, 0, 0, .0001) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+
+		@media only screen and (min-width: 481px) and (max-width: 767px) {
+			left: -10px;
+		}
+
+		@media only screen and (max-width: 480px) {
+			display: none;
+		}
+
+		&:hover {
+			background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .0001) 100%);
+			background-image: -o-linear-gradient(left, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .0001) 100%);
+			background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .5)), to(rgba(0, 0, 0, .0001)));
+			background-image: linear-gradient(to right, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .0001) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+		}
+	}
+
+	.carousel-control.right {
+		right: -30px;
+		@include transition(all 0.3s ease-in-out);
+		background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .1) 100%);
+		background-image: -o-linear-gradient(left, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .1) 100%);
+		background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .0001)), to(rgba(0, 0, 0, .1)));
+		background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+
+		@media only screen and (min-width: 481px) and (max-width: 767px) {
+			right: -10px;
+		}
+
+		@media only screen and (max-width: 480px) {
+			display: none;
+		}
+
+		&:hover {
+			background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5) 100%);
+			background-image: -o-linear-gradient(left, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5) 100%);
+			background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .0001)), to(rgba(0, 0, 0, .5)));
+			background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+		}
+	}
+}
+
+[class*="jn-animation-"] {
+	-webkit-transition: all 500ms ease;
+	-moz-transition: all 500ms ease;
+	-ms-transition: all 500ms ease;
+	-o-transition: all 500ms ease;
+	transition: all 500ms ease;
+}
+
+.jn-animation-slow {
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	transition: all 1s ease;
+}
+
+.jn-animation-fast {
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+	transition: all 300ms ease;
+}
+
+.jn-animation-fade {
+	opacity: 0;
+}
+
+.jn-animation-fade.jn-animation-active {
+	opacity: 1;
+}
+
+.jn-animation-zoom {
+	-webkit-transform: scale(0.77);
+	-moz-transform: scale(0.77);
+	-ms-transform: scale(0.77);
+	-o-transform: scale(0.77);
+	transform: scale(0.77);
+	opacity: 0;
+}
+
+.jn-animation-zoom.jn-animation-active {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
+}
+
+.jn-animation-fly-from-above {
+	opacity: 0;
+	-ms-transform: translate(0, -50px);
+	-webkit-transform: translate(0, -50px);
+	transform: translate(0, -50px);
+}
+
+.jn-animation-fly-from-above.jn-animation-active {
+	opacity: 1;
+	-ms-transform: translate(0, 0);
+	-webkit-transform: translate(0, 0);
+	transform: translate(0, 0);
+}
+
+.jn-animation-fly-from-below {
+	opacity: 0;
+	-ms-transform: translate(0, 50px);
+	-webkit-transform: translate(0, 50px);
+	transform: translate(0, 50px);
+}
+
+.jn-animation-fly-from-below.jn-animation-active {
+	opacity: 1;
+	-ms-transform: translate(0, 0);
+	-webkit-transform: translate(0, 0);
+	transform: translate(0, 0);
+}
+
+.jn-animation-fly-from-left {
+	opacity: 0;
+	-ms-transform: translate(-50px, 0);
+	-webkit-transform: translate(-50px, 0);
+	transform: translate(-50px, 0);
+}
+
+.jn-animation-fly-from-left.jn-animation-active {
+	opacity: 1;
+	-ms-transform: translate(0, 0);
+	-webkit-transform: translate(0, 0);
+	transform: translate(0, 0);
+}
+
+.jn-animation-fly-from-right {
+	opacity: 0;
+	-ms-transform: translate(50px, 0);
+	-webkit-transform: translate(50px, 0);
+	transform: translate(50px, 0);
+}
+
+.jn-animation-fly-from-right.jn-animation-active {
+	opacity: 1;
+	-ms-transform: translate(0, 0);
+	-webkit-transform: translate(0, 0);
+	transform: translate(0, 0);
+}
+
+/*--------------------------------------------------------------
+# Main Menu
+--------------------------------------------------------------*/
+.main-menu {
+	@media only screen and (max-width: 991px) {
+		display: none;
+	}
+
+	.menu {
+		float: none;
+		@include center-table;
+	}
+
+	.menu li {
+		position: relative;
+		display: block;
+	}
+
+	.menu a {
+		display: block;
+		// line-height: 1em;
+		padding: 1em;
+		font-family: 'Raleway Medium';
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	// first level
+	.menu>li>a {
+		color: #d6d6d6;
+		text-transform: uppercase;
+		font-size: 1em;
+		padding: 20px 10px;
+		position: relative;
+		overflow: hidden;
+		@include transition(all 0.3s ease-in-out);
+
+		@media only screen and (min-width: 980px) and (max-width: 1240px) {
+			font-size: 1.2vw;
+			// padding: 20px 4px;
+		}
+
+		&:hover,
+		&:focus {
+			background: transparent;
+			color: #fff;
+		}
+
+		&:after {
+			content: "\f0d8";
+			font-family: FontAwesome;
+			color: $grayLighter;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: -18px;
+			font-size: 1.2em;
+			text-align: center;
+			opacity: 0;
+			@include transition(all 0.3s ease-in-out);
+		}
+
+		&:hover:after {
+			bottom: -7px;
+			opacity: 1;
+		}
+	}
+
+	.menu>li.current-menu-item>a {
+		color: #fff;
+
+		&:after {
+			bottom: -7px;
+			opacity: 1;
+		}
+	}
+
+	// second level
+	.menu .sub-menu {
+		position: absolute;
+		margin: 0;
+		padding: 0;
+		list-style: none outside none;
+		top: 100%;
+		left: 0;
+		z-index: 1000;
+		background-color: #fff;
+		@include box-shadow(1px 1px 4px rgba(0, 0, 0, .3));
+	}
+
+	.menu .sub-menu li {
+		float: none;
+	}
+
+	.menu li>.sub-menu {
+		visibility: hidden;
+	}
+
+	.menu .sub-menu li a {
+		white-space: nowrap;
+		min-width: 160px;
+	}
+
+	.menu>li.menu-item-has-children:hover>.sub-menu {
+		visibility: visible;
+	}
+
+	// third level ++
+	.menu .sub-menu ul {
+		left: 100%;
+		top: 0;
+	}
+
+	.menu>li li.menu-item-has-children:hover>.sub-menu {
+		visibility: visible;
+	}
+
+	// hover for all sub menu items
+	.menu .sub-menu li a:hover,
+	.menu .sub-menu li.current-menu-item>a,
+	.menu .sub-menu li.current-menu-parent>a {
+		color: #fff;
+		background: $blue;
+		@include transition(0.2s ease-in);
+	}
+
+	//menu effect
+
+	.menu li>.sub-menu {
+		transition: opacity .5s, margin-top .5s, visibility .5s;
+		-webkit-transition: opacity .5s, margin-top .5s, visibility .5s;
+		-moz-transition: opacity .5s, margin-top .5s, visibility .5s;
+		-o-transition: opacity .5s, margin-top .5s, visibility .5s;
+		visibility: hidden;
+		opacity: 0;
+		margin-top: 30px;
+	}
+
+	.menu li:hover>.sub-menu,
+	.menu li.menu-item-has-children:hover>.sub-menu {
+		visibility: visible;
+		opacity: 1;
+		margin-top: 0;
+	}
+
+}
+/*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
+
+/* Document
+	 ========================================================================== */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+
+html {
+	line-height: 1.15; /* 1 */
+	-webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+	 ========================================================================== */
+
+/**
+ * Remove the margin in all browsers.
+ */
+
+body {
+	margin: 0;
+	overflow-x: hidden;
+	padding-top: 60px;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+
+h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+
+/* Grouping content
+	 ========================================================================== */
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+	box-sizing: content-box; /* 1 */
+	overflow: visible; /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+pre {
+	font-family: monospace, monospace; /* 1 */
+	font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+	 ========================================================================== */
+
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+
+a {
+	background-color: transparent;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+abbr[title] {
+	border-bottom: none; /* 1 */
+	text-decoration: underline; /* 2 */
+	text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+	font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+code,
+kbd,
+samp {
+	font-family: monospace, monospace; /* 1 */
+	font-size: 1em; /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+	font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+sup {
+	top: -0.5em;
+}
+
+/* Embedded content
+	 ========================================================================== */
+
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+
+img {
+	border-style: none;
+}
+
+/* Forms
+	 ========================================================================== */
+
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	font-family: inherit; /* 1 */
+	font-size: 100%; /* 1 */
+	line-height: 1.15; /* 1 */
+	margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input { /* 1 */
+	overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button,
+select { /* 1 */
+	text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+	-webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+	border-style: none;
+	padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+	outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+
+fieldset {
+	padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *		`fieldset` elements in all browsers.
+ */
+
+legend {
+	box-sizing: border-box; /* 1 */
+	color: inherit; /* 2 */
+	display: table; /* 1 */
+	max-width: 100%; /* 1 */
+	padding: 0; /* 3 */
+	white-space: normal; /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+	vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+
+textarea {
+	overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+	box-sizing: border-box; /* 1 */
+	padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+	height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+	-webkit-appearance: textfield; /* 1 */
+	outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+	-webkit-appearance: button; /* 1 */
+	font: inherit; /* 2 */
+}
+
+/* Interactive
+	 ========================================================================== */
+
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+
+details {
+	display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+	display: list-item;
+}
+
+/* Misc
+	 ========================================================================== */
+
+/**
+ * Add the correct display in IE 10+.
+ */
+
+template {
+	display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+
+[hidden] {
+	display: none;
+}
+
+.page-blog {
+	.blog-item {
+		margin-bottom: 50px;
+	}
+}
+
+.page-contact {
+	aside {
+		section {
+			padding: 10px;
+			box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
+			margin-bottom: 30px;
+		}
+	}
+	main {
+		padding-top: 0;
+	}
+	.entry-content {
+		margin-top: 0;
+	}
+	.wpforms-form {
+		padding: 0px 20px;
+		padding-bottom: 60px;
+		box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
+		.wpforms-field {
+			margin-bottom: 20px;
+		}
+		input.wpforms-field-medium, select.wpforms-field-medium, .wpforms-field-row.wpforms-field-medium {
+			max-width: 100% !important;
+			width: 100% !important;
+		}
+		.wpforms-submit-container {
+			position: relative;
+			display: flex !important;
+			align-items: center !important;
+			justify-content: center !important;
+		}
+		input.wpforms-field-medium, select.wpforms-field-medium, .wpforms-field-row.wpforms-field-medium {
+			max-width: 100% !important;
+		}
+		.wpforms-field.wpforms-field-name {
+			padding-top: 30px;
+		}
+		button#wpforms-submit-627,
+		button#wpforms-submit-628 {
+			display: table !important;
+			margin-left: auto !important;
+			margin-right: auto !important;
+			padding: 12px 35px;
+			color: #fff;
+			background: $blue;
+			font-size: 1em;
+			text-transform: uppercase;
+			font-family: 'Raleway Regular';
+			border-radius: 0;
+			margin: 15px 0;
+			@include transition(all 0.3s ease-in-out);
+			&:hover,
+			&:focus {
+				text-decoration: none;
+				background: $grayDarker;
+				color: #fff;
+			}
+		}
+	}
+	#black-studio-tinymce-12,
+	#black-studio-tinymce-15 {
+		padding: 10px;
+		box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
+		margin-bottom: 30px;
+	}
+}
+
+/*--------------------------------------------------------------
+# Galleries
+--------------------------------------------------------------*/
+.page-gallery {
+	.envira-pagination-load-more {
+		color: #fff !important;
+		background: $blue !important;
+		padding: 10px 25px !important;
+		display: inline-block !important;
+		font-size: 1em !important;
+		text-transform: uppercase !important;
+		font-family: 'Raleway Regular' !important;
+		border-radius: 0 !important;
+		margin: 15px 0 !important;
+		@include transition(all 0.3s ease-in-out);
+		display: table !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
+		&:hover,
+		&:focus {
+			text-decoration: none !important;
+			background: $grayDarker !important;
+			color: #fff !important;
+		}
+	}
+	.envira-gallery-wrap {
+		margin-bottom: 80px;
+	}
+}
+
+#primary.home-page {
+	background: $grayLighter;
+	padding: 70px 0;
+
+	@media only screen and (max-width: 979px) {
+		padding: 30px 0;
+	}
+
+	p {
+		margin-bottom: 40px;
+		font-family: 'Raleway Medium';
+		font-size: 1.2em;
+		text-align: center;
+		line-height: 2;
+		padding: 0 32px;
+		color: #888;
+
+		@media only screen and (min-width: 768px) and (max-width: 1199px) {
+			margin-bottom: 20px;
+			font-size: 1em;
+			line-height: 1.5;
+			padding: 0;
+		}
+
+		@media only screen and (max-width: 767px) {
+			margin-bottom: 20px;
+			font-size: 1em;
+			line-height: 1.6;
+			padding: 0 15px;
+		}
+	}
+
+	.btn-style-1 {
+		@include center-table();
+		padding: 25px 80px;
+		font-size: 1.5em;
+		font-family: 'Raleway Regular';
+
+		@media only screen and (max-width: 767px) {
+			padding: 15px 40px;
+			font-size: 1.2em;
+		}
+	}
+}
+.page-testimonials {
+	.testimonio-item:nth-child(odd) {
+		background: #eee;
+		padding: 15px 30px;
+		margin-bottom: 20px;
+	}
+	.testimonio-item:nth-child(even) {
+		background: #f9f9f9;
+		padding: 15px 30px;
+		margin-bottom: 20px;
+	}
+	.fa.fa-quote-right {
+		display: table;
+		margin-left: auto;
+		font-size: 1.8em;
+		color: $blue;
+	}
+	.fa.fa-quote-left {
+		font-size: 1.8em;
+		color: $blue;
+	}
+}
+
+#section-before-after {
+	background: $grayLight;
+
+	.before-after {
+		.widget-title {
+			text-transform: uppercase;
+			font-size: 3em;
+			letter-spacing: 1px;
+			margin-bottom: 30px;
+
+			@media only screen and (min-width: 768px) and (max-width: 1199px) {
+				font-size: 2.5em;
+			}
+
+			@media only screen and (min-width: 481px) and (max-width: 767px) {
+				font-size: 2em;
+			}
+
+			@media only screen and (max-width: 480px) {
+				font-size: 1.5em;
+				margin-bottom: 20px;
+			}
+		}
+
+		.textwidget {
+			text-align: center;
+		}
+
+		p {
+			text-transform: uppercase;
+			font-weight: bold;
+			font-size: 1.2em;
+		}
+
+		.btn-style-1 {
+			font-size: 1.8em;
+			font-family: 'Raleway Light';
+			letter-spacing: 1px;
+			padding: 28px 100px;
+			margin: 0;
+
+			@media only screen and (max-width: 1199px) {
+				font-size: 1.5em;
+				padding: 20px 60px;
+				margin: 0;
+			}
+		}
+
+	}
+}
+#section-cita {
+	background: $blue;
+
+	.cita {
+		p {
+			color: #fff;
+			font-size: 2.2em;
+			margin: 0;
+			@include center-table();
+			padding-top: 20px;
+
+			@media only screen and (min-width: 980px) and (max-width: 1199px) {
+				font-size: 1.5em;
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				font-size: 1.4em;
+			}
+
+			@media only screen and (max-width: 767px) {
+				font-size: 1.8em;
+				padding-top: 10px;
+				text-align: center;
+				line-height: 1.2;
+			}
+
+			@media only screen and (max-width: 480px) {
+				font-size: 1.5em;
+			}
+		}
+
+		.btn-style-3 {
+			font-size: 1.5em;
+			padding: 25px 50px;
+			@include center-table();
+			font-family: 'Raleway Medium';
+
+			@media only screen and (max-width: 1199px) {
+				font-size: 1.2em;
+				padding: 20px 40px;
+			}
+
+			&:hover,
+			&:focus {
+				background: $grayDark;
+			}
+		}
+
+		// Styles to english version
+		.english {
+			p {
+				padding-top: 8px;
+				line-height: 1;
+			}
+		}
+	}
+}
+#section-cometolima {
+	background: $grayLighter;
+
+	.cometolima {
+		padding: 0;
+
+		.widget-title {
+			text-align: center;
+			text-transform: uppercase;
+			font-size: 3em;
+			margin-bottom: 18px;
+
+			@media only screen and (min-width: 768px) and (max-width: 1199px) {
+				font-size: 2.5em;
+			}
+
+			@media only screen and (min-width: 481px) and (max-width: 767px) {
+				font-size: 2em;
+			}
+
+			@media only screen and (max-width: 480px) {
+				font-size: 1.5em;
+			}
+		}
+
+		img {
+			width: 100%;
+		}
+
+		.subtitle {
+			text-align: center;
+			font-size: 1.5em;
+			margin-bottom: 30px;
+
+			@media only screen and (max-width: 767px) {
+				line-height: 1.2;
+			}
+		}
+
+		p {
+			text-align: center;
+			font-size: 1.2em;
+			font-weight: bold;
+			padding: 0 150px;
+			color: #888;
+			line-height: 1.2;
+
+			@media only screen and (min-width: 980px) and (max-width: 1199px) {
+				font-size: 1.1em;
+				padding: 0 15px;
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				font-size: 1em;
+				padding: 0;
+			}
+
+			@media only screen and (max-width: 4767px) {
+				font-size: 1em;
+				font-weight: 700;
+				padding: 0 25px;
+				color: #888;
+				line-height: 1.2;
+			}
+		}
+
+		.image-container {
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				padding: 40px 0;
+			}
+		}
+
+		.btn-style-2 {
+			@include center-table();
+			font-size: 1.4em;
+			padding: 20px 50px;
+
+			@media only screen and (max-width: 979px) {
+				font-size: 1em;
+				padding: 15px 40px;
+			}
+		}
+
+		.col-sm-6 {
+			padding: 0;
+		}
+
+		.content {
+			padding: 68px 0;
+
+			@media only screen and (max-width: 1199px) {
+				padding: 30px 0;
+			}
+		}
+	}
+
+	// styles to english version
+	.english {
+		.widget-title {
+			line-height: 1.1;
+		}
+
+		.content {
+			padding: 25px 0;
+		}
+	}
+}
+#section-instalaciones {
+	background-image: url('images/bin/instalaciones.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+
+	.instalaciones {
+		padding: 100px 0;
+
+		@media only screen and (max-width: 767px) {
+			padding: 50px 0;
+		}
+
+		.btn-style-1 {
+			padding: 30px 60px;
+			display: table;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 40px;
+
+			@media only screen and (max-width: 480px) {
+				padding: 20px 40px;
+				margin-bottom: 30px;
+				font-size: 0.9em;
+			}
+		}
+
+		p {
+			color: #fff;
+			font-size: 1.5em;
+			letter-spacing: 1px;
+			margin-bottom: 10px;
+			line-height: 1.3;
+
+			@media only screen and (max-width: 480px) {
+				font-size: 1em;
+			}
+		}
+	}
+}
+#section-medios {
+	.medios {
+		padding: 100px 0;
+
+		@media only screen and (min-width: 768px) and (max-width: 979px) {
+			padding: 50px 0;
+		}
+
+		@media only screen and (max-width: 767px) {
+			padding: 30px 0;
+		}
+
+		img {
+			width: 100%;
+		}
+
+		.widget-title {
+			text-align: center;
+			text-transform: uppercase;
+			font-size: 2.8em;
+			letter-spacing: 2px;
+			margin-top: 30px;
+			margin-bottom: 18px;
+
+			@media only screen and (min-width: 980px) and (max-width: 1199px) {
+				font-size: 2.3em;
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				font-size: 2em;
+			}
+
+			@media only screen and (min-width: 481px) and (max-width: 767px) {
+				font-size: 2em;
+			}
+
+			@media only screen and (max-width: 480px) {
+				font-size: 1.5em;
+			}
+		}
+
+		.subtitle {
+			text-align: center;
+			text-transform: uppercase;
+			font-size: 1.3em;
+			letter-spacing: 1px;
+			font-family: 'Raleway Medium';
+			margin-bottom: 40px;
+
+		}
+
+		p {
+			text-align: center;
+			padding: 0 85px;
+			font-size: 1.2em;
+			line-height: 1.2;
+			font-weight: bold;
+			margin-bottom: 50px;
+			color: #888;
+
+			@media only screen and (min-width: 768px) and (max-width: 1199px) {
+				padding: 0;
+				line-height: 1.2;
+				font-weight: 700;
+				margin-bottom: 30px;
+			}
+
+			@media only screen and (max-width: 767px) {
+				padding: 0 25px;
+			}
+		}
+
+		.btn-style-2 {
+			margin: 20px 0;
+			@include center-table();
+			// @include flex-center();
+			width: 200px;
+			height: 60px;
+			text-align: center;
+			font-size: 1.3em;
+			padding: 20px 8px;
+			font-family: 'Raleway Regular';
+			color: #cbcbcb;
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				height: 40px;
+				font-size: 1em;
+				padding: 10px 8px;
+			}
+		}
+	}
+}
+#section-procedures {
+	background: $blue;
+
+	.procedures {
+		padding: 100px 0;
+
+		@media only screen and (max-width: 979px) {
+			padding: 50px 0;
+		}
+
+		.widget-title {
+			text-align: center;
+			font-size: 3em;
+			text-transform: uppercase;
+			color: #fff;
+			letter-spacing: 2px;
+			font-family: 'Raleway Regular';
+			margin-bottom: 80px;
+
+			@media only screen and (min-width: 768px) and (max-width: 1199px) {
+				font-size: 2.5em;
+				margin-bottom: 60px;
+			}
+
+			@media only screen and (min-width: 481px) and (max-width: 767px) {
+				font-size: 2em;
+				margin-bottom: 50px;
+			}
+
+			@media only screen and (max-width: 480px) {
+				font-size: 1.5em;
+				margin-bottom: 50px;
+			}
+		}
+
+		.image-container {
+			position: relative;
+		}
+
+		.rollover {
+			position: absolute;
+			color: #fff;
+			background: rgba(11, 18, 46, 0.5);
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			@include transition(all 0.3s ease-in-out);
+			@include flex-center();
+
+			.procedure-title {
+				color: #fff;
+				text-transform: uppercase;
+				font-size: 1.5em;
+				letter-spacing: 2px;
+				font-family: 'Raleway ExtraLight';
+				@include transition(all 0.3s ease-in-out);
+
+				@media only screen and (min-width: 980px) and (max-width: 1199px) {
+					font-size: 1.1em;
+				}
+
+				@media only screen and (min-width: 768px) and (max-width: 979px) {
+					font-size: 1em;
+				}
+			}
+
+			&:hover {
+				background: rgba(11, 18, 46, 0.7);
+
+				.procedure-title {
+					@include scale(0.85);
+				}
+			}
+		}
+
+		.links {
+			margin-top: 40px;
+
+			@media only screen and (max-width: 767px) {
+				margin-bottom: 40px;
+			}
+		}
+
+		.links a {
+			display: block;
+			color: #cbcbcb;
+			text-align: center;
+			text-transform: uppercase;
+			margin-bottom: 3px;
+
+			@media only screen and (min-width: 980px) and (max-width: 1199px) {
+				font-size: 0.9em;
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				font-size: 0.8em;
+			}
+		}
+	}
+
+	// modal styles
+	.modal {
+		.modal-header {
+			padding: 0px 15px;
+			padding-bottom: 10px;
+		}
+
+		.modal-title {
+			font-size: 1.8em;
+			text-transform: uppercase;
+		}
+
+		.modal-footer {
+			padding: 0px 15px;
+		}
+
+		h2 {
+			font-size: 1.3em;
+		}
+	}
+}
+#section-reservaciones {
+	background: $blue;
+
+	.reservaciones {
+		padding: 0;
+
+		img {
+			width: 100%;
+
+			padding: 15px;
+
+			@media only screen and (max-width: 767px) {}
+		}
+
+		p {
+			margin: 0;
+			height: 0;
+		}
+
+		.widget-title {
+			text-align: center;
+			color: #fff;
+			text-transform: uppercase;
+			font-size: 2em;
+			letter-spacing: 1px;
+			font-family: 'Raleway Light';
+			width: 65%;
+			line-height: 1.2;
+			@include center-table();
+			margin-top: 80px;
+
+			@media only screen and (min-width: 980px) and (max-width: 1199px) {
+				font-size: 1.5em;
+				width: 65%;
+				margin-top: 25px;
+			}
+
+			@media only screen and (max-width: 979px) {
+				width: 100%;
+				margin-top: 30px;
+			}
+
+			@media only screen and (min-width: 481px) and (max-width: 767px) {
+				font-size: 1.5em;
+			}
+
+			@media only screen and (max-width: 480px) {
+				font-size: 1.2em;
+			}
+		}
+
+		label.wpforms-field-label {
+			color: #fff;
+		}
+
+		div.wpforms-container-full .wpforms-form .wpforms-field {
+			width: 65%;
+			@include center-table();
+
+			@media only screen and (max-width: 767px) {
+				width: 85%;
+			}
+		}
+
+		button[type="submit"] {
+			display: table;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 15px 50px;
+			font-size: 1.5em;
+			text-transform: uppercase;
+			color: #0b122e;
+			font-family: 'Raleway Bold';
+			margin-top: 20px;
+			@include transition(all 0.3s ease-in-out);
+
+			@media only screen and (min-width: 980px) and (max-width: 1199px) {
+				padding: 12px 40px;
+				font-size: 1em;
+				margin-top: 12px;
+			}
+
+			@media only screen and (max-width: 767px) {
+				padding: 12px 35px;
+				font-size: 1.2em;
+			}
+
+			&:hover,
+			&:focus {
+				background: $grayDark;
+				color: #fff;
+			}
+		}
+	}
+}
+#section-seals {
+	.seals {
+		text-align: center;
+		padding: 25px 0;
+	}
+
+	img {
+		@include transition(all 0.3s ease-in-out);
+		max-height: 130px;
+
+		@media only screen and (min-width: 980px) and (max-width: 1199px) {
+			max-height: 120px;
+		}
+
+		@media only screen and (min-width: 768px) and (max-width: 979px) {
+			max-height: 100px;
+		}
+
+		@media only screen and (min-width: 481px) and (max-width: 767px) {
+			max-height: 65px;
+		}
+
+		@media only screen and (max-width: 480px) {
+			max-height: 40px;
+		}
+
+		&:hover {
+			@include scale(1.1);
+		}
+	}
+}
+#section-testimonials {
+	background: $grayDark;
+	padding-top: 60px;
+	padding-bottom: 20px;
+
+	@media only screen and (max-width: 767px) {
+		padding-top: 30px;
+	}
+
+	.testimonials {
+		.section-title {
+			text-align: center;
+			text-transform: uppercase;
+			font-size: 3em;
+			letter-spacing: 1px;
+			margin-bottom: 60px;
+			color: #fff;
+
+			@media only screen and (min-width: 768px) and (max-width: 1199px) {
+				font-size: 2.5em;
+			}
+
+			@media only screen and (min-width: 481px) and (max-width: 767px) {
+				font-size: 2em;
+			}
+
+			@media only screen and (max-width: 480px) {
+				font-size: 1.5em;
+				margin-bottom: 30px;
+			}
+		}
+
+		.carousel-inner {
+			width: 700px;
+			@include center-table();
+			height: 200px;
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				width: 630px;
+			}
+
+			@media only screen and (max-width: 767px) {
+				width: 95%;
+				font-size: 0.8em;
+				text-align: center;
+				height: 185px;
+			}
+
+			&:hover {
+				cursor: -webkit-grab;
+				cursor: -moz-grab;
+				cursor: grab;
+			}
+		}
+
+		.item {
+			font-size: 1.3em;
+			color: $grayLight;
+			line-height: 1.2;
+		}
+
+		.testimonio-title {
+			font-family: 'Great Vibes';
+			font-size: 2em;
+			color: $grayLight;
+
+			@media only screen and (max-width: 767px) {
+				font-size: 1.8em;
+			}
+		}
+
+		.carousel-control.left {
+			left: -60px;
+			font-size: 3.5em;
+			@include transition(all 0.3s ease-in-out);
+			background-image: none;
+
+			@media only screen and (min-width: 980px) and (max-width: 1199px) {
+				left: -95px;
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				left: -40px;
+			}
+
+			@media only screen and (max-width: 767px) {
+				display: none;
+			}
+
+			&:hover {
+				background-image: none;
+			}
+		}
+
+		.carousel-control.right {
+			right: -60px;
+			font-size: 3.5em;
+			@include transition(all 0.3s ease-in-out);
+			background-image: none;
+
+			@media only screen and (min-width: 980px) and (max-width: 1199px) {
+				right: -95px;
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				right: -40px;
+			}
+
+			@media only screen and (max-width: 767px) {
+				display: none;
+			}
+
+			&:hover {
+				background-image: none;
+			}
+		}
+
+		p {
+			margin-bottom: 50px;
+		}
+
+		.btn-style-3 {
+			@include center-table();
+			padding: 25px 70px;
+			font-size: 1.4em;
+			font-family: 'Raleway Medium';
+			margin-top: 0;
+			margin-bottom: 50px;
+
+			@media only screen and (max-width: 979px) {
+				padding: 18px 40px;
+				font-size: 1.2em;
+			}
+		}
+
+		.star-rating {
+			@include center-table();
+		}
+
+		.star-rating li i {
+			color: $yellow;
+			font-size: 1.8em;
+		}
+
+		.row {
+			width: 700px;
+			@include center-table();
+
+			@media only screen and (max-width: 767px) {
+				width: 100%;
+				text-align: center;
+			}
+		}
+
+		.average,
+		.reviews {
+			color: $grayLight;
+			font-size: 1.2em;
+
+			@media only screen and (max-width: 767px) {
+				margin-bottom: 15px;
+			}
+		}
+	}
+}
+/*--------------------------------------------------------------
+# To top
+--------------------------------------------------------------*/
+.to-top {
+	color: #fff;
+	z-index: 1040;
+	position: fixed;
+	bottom: -100px;
+	right: 40px;
+	font-size: 0.9em;
+	opacity: 0;
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+	padding: 0;
+	border: 0;
+	box-shadow: none;
+	background: $blue;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+
+	@media only screen and (max-width: 480px) {
+		height: 35px;
+		width: 35px;
+		right: 25px;
+	}
+
+	&:hover {
+		background: $grayDarker;
+		transition: all 0.4s ease-in-out;
+		-moz-transition: all 0.4s ease-in-out;
+		-webkit-transition: all 0.4s ease-in-out;
+		-o-transition: all 0.4s ease-in-out;
+		-ms-transition: all 0.4s ease-in-out;
+		color: #fff;
+	}
+
+	&.Active {
+		opacity: 1;
+		bottom: 50px;
+
+		@media only screen and (max-width: 480px) {
+			bottom: 25px;
+		}
+	}
+}

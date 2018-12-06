@@ -1,0 +1,146 @@
+header {
+	#header-1 {
+		background: $blue;
+
+		@media only screen and (max-width: 991px) {
+			height: 60px;
+		}
+	}
+
+	#header-2 {
+		background: $grayLighter;
+
+		.col-md-6 {
+			@media (min-width: 768px) {
+				padding: 0;
+			}
+		}
+
+		.address-info {
+			padding: 48px 0;
+
+			@media only screen and (min-width: 768px) and (max-width: 1199px) {
+				padding: 30px 0;
+				font-size: 0.85em;
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				font-size: 0.8em;
+			}
+
+			@media only screen and (max-width: 767px) {
+				padding: 20px 0;
+				text-align: center;
+				font-size: 0.9em;
+				display: none;
+			}
+
+			address {
+				margin: 0;
+				line-height: 1.2;
+				margin-bottom: 15px;
+			}
+
+			p {
+				line-height: 1;
+				margin: 0;
+			}
+
+			address a {
+				text-transform: uppercase;
+				color: $blue;
+				font-family: 'Raleway SemiBold';
+				font-size: 0.95em;
+			}
+
+			.celular,
+			.fijo {
+				color: $blue;
+				font-weight: bold;
+				font-size: 1.2em;
+			}
+
+			.btn-style-1 {
+				padding: 7px 25px;
+			}
+
+			.english {
+				.btn-style-1 {
+					padding: 7px 7px;
+					font-size: 0.8em;
+				}
+			}
+		}
+
+		.logo {
+			padding: 65px 0;
+
+			@media only screen and (max-width: 767px) {
+				padding: 20px 10px;
+			}
+
+			img {
+				width: 100%;
+			}
+		}
+
+		.contact-header {
+			padding: 48px 0;
+			padding-left: 24%;
+
+			@media only screen and (min-width: 768px) and (max-width: 1199px) {
+				padding: 30px 0;
+				padding-left: 0%;
+				font-size: 0.85em;
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				font-size: 0.8em;
+			}
+
+			@media only screen and (max-width: 767px) {
+				padding: 20px 0;
+				padding-left: 0;
+				text-align: center;
+				font-size: 0.9em;
+				display: none;
+			}
+
+			.celular,
+			.fijo {
+				color: $blue;
+				font-weight: bold;
+				font-size: 1.2em;
+			}
+
+			.btn-style-1 {
+				padding: 7px 25px;
+			}
+
+			.english {
+				.btn-style-1 {
+					padding: 7px 7px;
+					font-size: 0.8em;
+				}
+			}
+
+			address {
+				margin: 0;
+				line-height: 1.2;
+				margin-bottom: 15px;
+			}
+
+			p {
+				line-height: 1;
+				margin: 0;
+			}
+
+			address a {
+				text-transform: uppercase;
+				color: $blue;
+				font-family: 'Raleway SemiBold';
+				font-size: 0.95em;
+			}
+		}
+	}
+}

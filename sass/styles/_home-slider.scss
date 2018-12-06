@@ -1,0 +1,195 @@
+#home-slider {
+
+	&:hover {
+		cursor: -webkit-grab;
+		cursor: -moz-grab;
+		cursor: grab;
+	}
+
+	.jn-holder {
+		@media only screen and (min-width: 1200px) and (max-width: 1920px) {
+			height: 660px !important;
+		}
+	}
+
+	// caption
+	.item .carousel-caption {
+		text-align: left;
+		text-shadow: none;
+		left: 8%;
+		top: 40%;
+		opacity: 0;
+		@include transition(all .8s ease-in-out);
+
+		@media only screen and (min-width: 980px) and (max-width: 1199px) {
+			font-size: 0.75em;
+			width: 50%;
+		}
+
+		@media only screen and (min-width: 768px) and (max-width: 979px) {
+			font-size: 0.7em;
+			padding: 20px;
+		}
+
+		@media only screen and (min-width: 481px) and (max-width: 767px) {
+			font-size: 0.5em;
+			padding: 15px;
+		}
+
+		@media only screen and (max-width: 480px) {
+			font-size: 0.4em;
+			padding: 5px;
+		}
+
+		@media only screen and (max-width: 400px) {
+			display: none;
+		}
+
+
+		.carousel-content {
+			color: #fff;
+			background: rgba(11, 18, 46, 0.8);
+			padding: 30px;
+			padding-bottom: 60px;
+			max-width: 650px;
+
+			@media only screen and (min-width: 980px) and (max-width: 1199px) {
+				padding: 20px;
+				padding-bottom: 20px;
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				padding: 15px;
+				padding-bottom: 15px;
+			}
+
+			@media only screen and (max-width: 767px) {
+				padding: 10px;
+				padding-bottom: 10px;
+			}
+
+			.title {
+				color: #fff;
+				text-transform: uppercase;
+				font-size: 2.3em;
+				font-family: 'Raleway ExtraLight';
+				letter-spacing: 3px;
+				margin-bottom: 15px;
+
+				@media only screen and (max-width: 767px) {
+					margin-bottom: 10px;
+					margin-top: 10px;
+				}
+			}
+
+			h4 {
+				color: #fff;
+				text-transform: uppercase;
+				font-size: 1.4em;
+				font-family: 'Raleway ExtraLight';
+				letter-spacing: 2px;
+				margin-bottom: 40px;
+
+				@media only screen and (max-width: 767px) {
+					margin-bottom: 15px;
+				}
+			}
+
+			p {
+				margin-bottom: 8px;
+				font-size: 1.5em;
+				letter-spacing: 1px;
+				line-height: 1.2;
+			}
+		}
+
+		.btn-style-1 {
+			font-size: 1.6em;
+			letter-spacing: 3px;
+			margin-top: 30px;
+			font-family: 'Raleway Regular';
+			padding: 10px 20px;
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				margin-top: 10px;
+			}
+
+			@media only screen and (max-width: 480px) {
+				display: none;
+			}
+		}
+	}
+
+	.item.active .carousel-caption {
+		top: 28%;
+		opacity: 1;
+
+		@media only screen and (min-width: 980px) and (max-width: 1199px) {
+			top: 8%;
+		}
+
+		@media only screen and (max-width: 979px) {
+			top: 0%;
+		}
+
+	}
+
+	.carousel-control {
+		color: $blue;
+		opacity: 1;
+		font-size: 4em;
+		@include transition(all 0.3s ease-in-out);
+	}
+
+	.carousel-control.left {
+		left: -30px;
+		@include transition(all 0.3s ease-in-out);
+		background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .1) 0, rgba(0, 0, 0, .0001) 100%);
+		background-image: -o-linear-gradient(left, rgba(0, 0, 0, .1) 0, rgba(0, 0, 0, .0001) 100%);
+		background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .1)), to(rgba(0, 0, 0, .0001)));
+		background-image: linear-gradient(to right, rgba(0, 0, 0, .1) 0, rgba(0, 0, 0, .0001) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+
+		@media only screen and (min-width: 481px) and (max-width: 767px) {
+			left: -10px;
+		}
+
+		@media only screen and (max-width: 480px) {
+			display: none;
+		}
+
+		&:hover {
+			background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .0001) 100%);
+			background-image: -o-linear-gradient(left, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .0001) 100%);
+			background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .5)), to(rgba(0, 0, 0, .0001)));
+			background-image: linear-gradient(to right, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .0001) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+		}
+	}
+
+	.carousel-control.right {
+		right: -30px;
+		@include transition(all 0.3s ease-in-out);
+		background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .1) 100%);
+		background-image: -o-linear-gradient(left, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .1) 100%);
+		background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .0001)), to(rgba(0, 0, 0, .1)));
+		background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+
+		@media only screen and (min-width: 481px) and (max-width: 767px) {
+			right: -10px;
+		}
+
+		@media only screen and (max-width: 480px) {
+			display: none;
+		}
+
+		&:hover {
+			background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5) 100%);
+			background-image: -o-linear-gradient(left, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5) 100%);
+			background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .0001)), to(rgba(0, 0, 0, .5)));
+			background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0, rgba(0, 0, 0, .5) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+		}
+	}
+}

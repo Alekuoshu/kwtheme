@@ -1,0 +1,148 @@
+/*--------------------------------------------------------------
+# Main Menu
+--------------------------------------------------------------*/
+.main-menu {
+	@media only screen and (max-width: 991px) {
+		display: none;
+	}
+
+	.menu {
+		float: none;
+		@include center-table;
+	}
+
+	.menu li {
+		position: relative;
+		display: block;
+	}
+
+	.menu a {
+		display: block;
+		// line-height: 1em;
+		padding: 1em;
+		font-family: 'Raleway Medium';
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	// first level
+	.menu>li>a {
+		color: #d6d6d6;
+		text-transform: uppercase;
+		font-size: 1em;
+		padding: 20px 10px;
+		position: relative;
+		overflow: hidden;
+		@include transition(all 0.3s ease-in-out);
+
+		@media only screen and (min-width: 980px) and (max-width: 1240px) {
+			font-size: 1.2vw;
+			// padding: 20px 4px;
+		}
+
+		&:hover,
+		&:focus {
+			background: transparent;
+			color: #fff;
+		}
+
+		&:after {
+			content: "\f0d8";
+			font-family: FontAwesome;
+			color: $grayLighter;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: -18px;
+			font-size: 1.2em;
+			text-align: center;
+			opacity: 0;
+			@include transition(all 0.3s ease-in-out);
+		}
+
+		&:hover:after {
+			bottom: -7px;
+			opacity: 1;
+		}
+	}
+
+	.menu>li.current-menu-item>a {
+		color: #fff;
+
+		&:after {
+			bottom: -7px;
+			opacity: 1;
+		}
+	}
+
+	// second level
+	.menu .sub-menu {
+		position: absolute;
+		margin: 0;
+		padding: 0;
+		list-style: none outside none;
+		top: 100%;
+		left: 0;
+		z-index: 1000;
+		background-color: #fff;
+		@include box-shadow(1px 1px 4px rgba(0, 0, 0, .3));
+	}
+
+	.menu .sub-menu li {
+		float: none;
+	}
+
+	.menu li>.sub-menu {
+		visibility: hidden;
+	}
+
+	.menu .sub-menu li a {
+		white-space: nowrap;
+		min-width: 160px;
+	}
+
+	.menu>li.menu-item-has-children:hover>.sub-menu {
+		visibility: visible;
+	}
+
+	// third level ++
+	.menu .sub-menu ul {
+		left: 100%;
+		top: 0;
+	}
+
+	.menu>li li.menu-item-has-children:hover>.sub-menu {
+		visibility: visible;
+	}
+
+	// hover for all sub menu items
+	.menu .sub-menu li a:hover,
+	.menu .sub-menu li.current-menu-item>a,
+	.menu .sub-menu li.current-menu-parent>a {
+		color: #fff;
+		background: $blue;
+		@include transition(0.2s ease-in);
+	}
+
+	//menu effect
+
+	.menu li>.sub-menu {
+		transition: opacity .5s, margin-top .5s, visibility .5s;
+		-webkit-transition: opacity .5s, margin-top .5s, visibility .5s;
+		-moz-transition: opacity .5s, margin-top .5s, visibility .5s;
+		-o-transition: opacity .5s, margin-top .5s, visibility .5s;
+		visibility: hidden;
+		opacity: 0;
+		margin-top: 30px;
+	}
+
+	.menu li:hover>.sub-menu,
+	.menu li.menu-item-has-children:hover>.sub-menu {
+		visibility: visible;
+		opacity: 1;
+		margin-top: 0;
+	}
+
+}

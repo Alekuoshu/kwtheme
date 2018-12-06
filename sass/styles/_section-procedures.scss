@@ -1,0 +1,122 @@
+#section-procedures {
+	background: $blue;
+
+	.procedures {
+		padding: 100px 0;
+
+		@media only screen and (max-width: 979px) {
+			padding: 50px 0;
+		}
+
+		.widget-title {
+			text-align: center;
+			font-size: 3em;
+			text-transform: uppercase;
+			color: #fff;
+			letter-spacing: 2px;
+			font-family: 'Raleway Regular';
+			margin-bottom: 80px;
+
+			@media only screen and (min-width: 768px) and (max-width: 1199px) {
+				font-size: 2.5em;
+				margin-bottom: 60px;
+			}
+
+			@media only screen and (min-width: 481px) and (max-width: 767px) {
+				font-size: 2em;
+				margin-bottom: 50px;
+			}
+
+			@media only screen and (max-width: 480px) {
+				font-size: 1.5em;
+				margin-bottom: 50px;
+			}
+		}
+
+		.image-container {
+			position: relative;
+		}
+
+		.rollover {
+			position: absolute;
+			color: #fff;
+			background: rgba(11, 18, 46, 0.5);
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			@include transition(all 0.3s ease-in-out);
+			@include flex-center();
+
+			.procedure-title {
+				color: #fff;
+				text-transform: uppercase;
+				font-size: 1.5em;
+				letter-spacing: 2px;
+				font-family: 'Raleway ExtraLight';
+				@include transition(all 0.3s ease-in-out);
+
+				@media only screen and (min-width: 980px) and (max-width: 1199px) {
+					font-size: 1.1em;
+				}
+
+				@media only screen and (min-width: 768px) and (max-width: 979px) {
+					font-size: 1em;
+				}
+			}
+
+			&:hover {
+				background: rgba(11, 18, 46, 0.7);
+
+				.procedure-title {
+					@include scale(0.85);
+				}
+			}
+		}
+
+		.links {
+			margin-top: 40px;
+
+			@media only screen and (max-width: 767px) {
+				margin-bottom: 40px;
+			}
+		}
+
+		.links a {
+			display: block;
+			color: #cbcbcb;
+			text-align: center;
+			text-transform: uppercase;
+			margin-bottom: 3px;
+
+			@media only screen and (min-width: 980px) and (max-width: 1199px) {
+				font-size: 0.9em;
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				font-size: 0.8em;
+			}
+		}
+	}
+
+	// modal styles
+	.modal {
+		.modal-header {
+			padding: 0px 15px;
+			padding-bottom: 10px;
+		}
+
+		.modal-title {
+			font-size: 1.8em;
+			text-transform: uppercase;
+		}
+
+		.modal-footer {
+			padding: 0px 15px;
+		}
+
+		h2 {
+			font-size: 1.3em;
+		}
+	}
+}

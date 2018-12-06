@@ -1,0 +1,95 @@
+#section-reservaciones {
+	background: $blue;
+
+	.reservaciones {
+		padding: 0;
+
+		img {
+			width: 100%;
+
+			padding: 15px;
+
+			@media only screen and (max-width: 767px) {}
+		}
+
+		p {
+			margin: 0;
+			height: 0;
+		}
+
+		.widget-title {
+			text-align: center;
+			color: #fff;
+			text-transform: uppercase;
+			font-size: 2em;
+			letter-spacing: 1px;
+			font-family: 'Raleway Light';
+			width: 65%;
+			line-height: 1.2;
+			@include center-table();
+			margin-top: 80px;
+
+			@media only screen and (min-width: 980px) and (max-width: 1199px) {
+				font-size: 1.5em;
+				width: 65%;
+				margin-top: 25px;
+			}
+
+			@media only screen and (max-width: 979px) {
+				width: 100%;
+				margin-top: 30px;
+			}
+
+			@media only screen and (min-width: 481px) and (max-width: 767px) {
+				font-size: 1.5em;
+			}
+
+			@media only screen and (max-width: 480px) {
+				font-size: 1.2em;
+			}
+		}
+
+		label.wpforms-field-label {
+			color: #fff;
+		}
+
+		div.wpforms-container-full .wpforms-form .wpforms-field {
+			width: 65%;
+			@include center-table();
+
+			@media only screen and (max-width: 767px) {
+				width: 85%;
+			}
+		}
+
+		button[type="submit"] {
+			display: table;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 15px 50px;
+			font-size: 1.5em;
+			text-transform: uppercase;
+			color: #0b122e;
+			font-family: 'Raleway Bold';
+			margin-top: 20px;
+			@include transition(all 0.3s ease-in-out);
+
+			@media only screen and (min-width: 980px) and (max-width: 1199px) {
+				padding: 12px 40px;
+				font-size: 1em;
+				margin-top: 12px;
+			}
+
+			@media only screen and (max-width: 767px) {
+				padding: 12px 35px;
+				font-size: 1.2em;
+			}
+
+			&:hover,
+			&:focus {
+				background: $grayDark;
+				color: #fff;
+			}
+		}
+	}
+}

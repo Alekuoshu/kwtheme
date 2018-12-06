@@ -1,0 +1,403 @@
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+body {
+	color: $textColor;
+	font-family: $sansFontFamily;
+	font-size: $baseFontSize;
+	line-height: $baseLineHeight;
+	background: $bodyBackground;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+	color: $headingsColor;
+	font-family: $headingsFontFamily;
+	line-height: $baseLineHeight;
+	font-weight: $headingsFontWeight;
+}
+
+article h1,
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
+	line-height: 1.2;
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+	margin: 0 1.5em;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	background: $grayLighter;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 10px;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted $gray;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: $gray;
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
+}
+
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+///////////////////////////////////////////////////////////
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	@include center-table;
+}
+
+/*--------------------------------------------------------------
+# Buttons
+--------------------------------------------------------------*/
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	border: 1px solid;
+	border-radius: 3px;
+	color: rgba(0, 0, 0, .8);
+	line-height: 1;
+	padding: .6em 1em .4em;
+
+	&:hover {}
+
+	&:active,
+	&:focus {}
+}
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+	@include clearfix;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+	@include clearfix-after;
+}
+
+/*--------------------------------------------------------------
+# Elemenst
+--------------------------------------------------------------*/
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	/* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+hr {
+	background-color: $grayLighter;
+	border: 0;
+	height: 2px;
+	margin-bottom: 1.5em;
+}
+
+img {
+	height: auto;
+	/* Make sure images are scaled correctly. */
+	max-width: 100%;
+	/* Adhere to container width. */
+}
+
+figure {
+	margin: 1em 0;
+	/* Extra wide images within figure tags don't overflow the content area. */
+}
+
+/*--------------------------------------------------------------
+# Fields
+--------------------------------------------------------------*/
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	border-radius: 3px;
+	padding: 3px;
+
+	&:focus {}
+}
+
+select {}
+
+textarea {
+	width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Links
+--------------------------------------------------------------*/
+a {
+	color: $linkColor;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $linkColorHover;
+	}
+
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
+
+/*--------------------------------------------------------------
+# Lists
+--------------------------------------------------------------*/
+ul,
+ol {
+	margin: 0 0 1.5em 3em;
+}
+
+ul {
+	list-style: disc;
+	margin-left: 10px;
+}
+
+ol {
+	list-style: decimal;
+	margin-left: 10px;
+}
+
+li>ul,
+li>ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+/* Make sure logo link wraps around logo image. */
+.custom-logo-link {
+	display: inline-block;
+}
+
+/*--------------------------------------------------------------
+# Others
+--------------------------------------------------------------*/
+.container,
+.container-fluid {
+	@media (min-width: 980px) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.block {
+	padding: 15px 0;
+}
+
+.jn-holder {
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+
+.jn-holder.jn-holder-block {
+	display: block;
+	width: 100%;
+}
+
+.carousel .carousel-control {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.support {
+	display: none !important;
+}
+
+.page-header {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 3em;
+	margin-bottom: 50px;
+	padding-bottom: 15px;
+	line-height: 1.3;
+
+	@media only screen and (min-width: 768px) and (max-width: 979px) {
+		font-size: 2.5em;
+	}
+
+	@media only screen and (min-width: 481px) and (max-width: 767px) {
+		font-size: 2em;
+	}
+
+	@media only screen and (max-width: 480px) {
+		font-size: 1.5em;
+	}
+}
+
+.jn-responsive {
+	display: inline-block;
+	max-width: 100%;
+
+	@media only screen and (min-width: 481px) and (max-width: 767px) {
+		max-height: 300px;
+	}
+
+	@media only screen and (max-width: 480px) {
+		max-height: 200px;
+	}
+}
+
+.jn-responsive.jn-responsive-block {
+	display: block;
+}
+
+.post-thumbnail,
+.cover-image {
+	margin-bottom: 25px;
+}
+
+.entry-content {
+	margin-top: 15px;
+}
+
+// styles to site main
+.site-main {
+
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		line-height: 1.3;
+
+		@media only screen and (max-width: 480px) {
+			font-size: 1.2em;
+		}
+	}
+
+	footer {
+		background: #fff;
+	}
+
+	li {
+		margin-bottom: 15px;
+	}
+}
+
+.u_next_story.nav-split h3 {
+	padding: 10px 20px !important;
+	height: auto !important;
+	white-space: normal !important;
+	line-height: 1.5 !important;
+}

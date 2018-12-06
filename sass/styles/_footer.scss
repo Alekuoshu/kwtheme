@@ -1,0 +1,188 @@
+footer {
+	color: #fff;
+	background: $grayDark;
+
+	.copyright {
+		text-align: center;
+		padding: 25px 0;
+
+		p {
+			margin-bottom: 0;
+			line-height: 2;
+		}
+
+		a {
+			color: #fff;
+		}
+	}
+
+	.logo-footer {
+		text-align: center;
+		padding-top: 80px;
+		padding-bottom: 50px;
+
+		@media only screen and (max-width: 767px) {
+			padding-top: 40px;
+			padding-bottom: 30px;
+		}
+	}
+
+	#menu-map-facebook {
+		.menu-footer {
+			@media only screen and (max-width: 767px) {
+				text-align: center;
+			}
+
+			.widget_title {
+				color: #fff;
+				text-transform: uppercase;
+				font-size: 1.2em;
+				letter-spacing: 2px;
+				margin-left: 20px;
+				margin-bottom: 18px;
+			}
+
+			.menu {
+				margin-left: 15px;
+			}
+
+			.menu a {
+				color: #fff;
+				padding: 2px 15px;
+				@include transition(all 0.2s ease-in-out);
+
+				@media only screen and (max-width: 480px) {
+					padding: 5px 15px;
+				}
+
+				&:hover,
+				&:focus {
+					color: $blue;
+					background: #fff;
+					text-decoration: none;
+					padding-left: 25px;
+				}
+			}
+
+			.footer-menu {
+				width: 80%;
+
+				@media only screen and (max-width: 767px) {
+					width: 100%;
+					margin-bottom: 30px;
+				}
+			}
+		}
+	}
+
+	.map-footer {
+		display: table;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.socials {
+		margin-top: 50px;
+
+		@media only screen and (max-width: 767px) {
+			margin-top: 40px;
+			margin-bottom: 40px;
+		}
+
+		ul {
+			@include center-table();
+		}
+
+		ul a,
+		.post-edit-link {
+			color: #fff;
+			font-size: 1.3em;
+			@include transition(all 0.2s ease-in-out);
+
+			@media only screen and (min-width: 980px) and (max-width: 1199px) {
+				font-size: 1em;
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				font-size: 0.9em;
+			}
+
+			@media only screen and (max-width: 480px) {
+				font-size: 1em;
+			}
+
+			&:hover,
+			&:focus {
+				color: $blue;
+			}
+		}
+
+		ul li,
+		.wpcw-widget-social ul li:not(.has-label) {
+			margin-right: 28px;
+
+			@media only screen and (min-width: 980px) and (max-width: 1199px) {
+				margin-right: 20px;
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				margin-right: 10px;
+			}
+
+			@media only screen and (max-width: 480px) {
+				margin-right: 18px;
+			}
+		}
+
+		ul li:last-child {
+			margin-right: 0 !important;
+		}
+	}
+
+	.facebook {
+		@include center-table();
+
+		.widget-title {
+			display: none;
+		}
+
+		.fb-page {
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				height: 350px !important;
+				max-width: 200px !important;
+			}
+
+			@media only screen and (max-width: 480px) {
+				max-width: 280px !important;
+			}
+
+			span {
+				@media only screen and (min-width: 768px) and (max-width: 979px) {
+					height: 350px !important;
+					max-width: 200px !important;
+				}
+
+				@media only screen and (max-width: 480px) {
+					max-width: 280px !important;
+				}
+			}
+
+			iframe {
+				@media only screen and (min-width: 768px) and (max-width: 979px) {
+					height: 350px !important;
+					max-width: 200px !important;
+				}
+
+				@media only screen and (max-width: 480px) {
+					max-width: 280px !important;
+				}
+			}
+		}
+	}
+
+	.site-info {
+		@media only screen and (max-width: 480px) {
+			font-size: 0.8em;
+		}
+	}
+}

@@ -1,0 +1,57 @@
+.btn-style-1,
+.elm-button {
+	color: #fff;
+	background: $blue;
+	padding: 10px 25px;
+	display: inline-block;
+	font-size: 1em;
+	text-transform: uppercase;
+	font-family: 'Raleway Regular';
+	border-radius: 0;
+	margin: 15px 0;
+	@include transition(all 0.3s ease-in-out);
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		background: $grayDarker;
+		color: #fff;
+	}
+}
+
+.btn-style-2 {
+	color: #fff;
+	background: $grayDark;
+	padding: 10px 25px;
+	display: inline-block;
+	font-size: 1em;
+	text-transform: uppercase;
+	font-family: 'Raleway Regular';
+	border-radius: 0;
+	margin: 15px 0;
+	@include transition(all 0.3s ease-in-out);
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		background: $blue;
+		color: #fff;
+	}
+}
+
+.btn-style-3 {
+	color: $blue;
+	background: $grayLight;
+	padding: 10px 25px;
+	display: inline-block;
+	font-size: 1em;
+	text-transform: uppercase;
+	font-family: 'Raleway Regular';
+	border-radius: 0;
+	margin: 15px 0;
+	@include transition(all 0.3s ease-in-out);
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		background: $blue;
+		color: #fff;
+	}
+}

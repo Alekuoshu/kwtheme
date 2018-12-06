@@ -1,0 +1,61 @@
+/*--------------------------------------------------------------
+# Variables
+--------------------------------------------------------------*/
+
+// Colors
+// -------------------------
+$black:                 #000;
+$grayDarker:            #222;
+$grayDark:              #323232;
+$gray:                  #e5e5e5;
+$grayLight:             #cbcbcb;
+$grayLighter:           #F2F2F2;
+$white:                 #fff;
+$blue:                  #0b122e;
+$blueDark:              #3B4B60;
+$green:                 #25A75D;
+$red:                   #9d261d;
+$yellow:                #f8af3a;
+$orange:                #f89406;
+$pink:                  #c3325f;
+$purple:                #7a43b6;
+
+
+// Scaffolding
+// -------------------------
+$bodyBackground:        $white;
+$textColor:             #444;
+
+
+// Links
+// -------------------------
+$linkColor:             $blue;
+$linkColorHover:        darken($linkColor, 15%);
+
+
+// Typography
+// -------------------------
+$sansFontFamily:        'Raleway Regular', "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serifFontFamily:       Georgia, "Times New Roman", Times, serif;
+$monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
+
+$baseFontSize:          16px;
+$baseFontFamily:        $sansFontFamily;
+$baseLineHeight:        20px;
+$altFontFamily:         $serifFontFamily;
+
+$headingsFontFamily:    'Raleway Regular'; // empty to use BS default, $baseFontFamily
+$headingsFontWeight:    bold;   // instead of browser default, bold
+$headingsColor:         $blue; // empty to use BS default, $textColor
+
+
+// Z-index master list
+// -------------------------
+// Used for a bird's eye view of components dependent on the z-axis
+// Try to avoid customizing these :)
+$zindexDropdown:          1000;
+$zindexPopover:           1010;
+$zindexTooltip:           1030;
+$zindexFixedNavbar:       1030;
+$zindexModalBackdrop:     1040;
+$zindexModal:             1050;

@@ -1,0 +1,92 @@
+#section-medios {
+	.medios {
+		padding: 100px 0;
+
+		@media only screen and (min-width: 768px) and (max-width: 979px) {
+			padding: 50px 0;
+		}
+
+		@media only screen and (max-width: 767px) {
+			padding: 30px 0;
+		}
+
+		img {
+			width: 100%;
+		}
+
+		.widget-title {
+			text-align: center;
+			text-transform: uppercase;
+			font-size: 2.8em;
+			letter-spacing: 2px;
+			margin-top: 30px;
+			margin-bottom: 18px;
+
+			@media only screen and (min-width: 980px) and (max-width: 1199px) {
+				font-size: 2.3em;
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				font-size: 2em;
+			}
+
+			@media only screen and (min-width: 481px) and (max-width: 767px) {
+				font-size: 2em;
+			}
+
+			@media only screen and (max-width: 480px) {
+				font-size: 1.5em;
+			}
+		}
+
+		.subtitle {
+			text-align: center;
+			text-transform: uppercase;
+			font-size: 1.3em;
+			letter-spacing: 1px;
+			font-family: 'Raleway Medium';
+			margin-bottom: 40px;
+
+		}
+
+		p {
+			text-align: center;
+			padding: 0 85px;
+			font-size: 1.2em;
+			line-height: 1.2;
+			font-weight: bold;
+			margin-bottom: 50px;
+			color: #888;
+
+			@media only screen and (min-width: 768px) and (max-width: 1199px) {
+				padding: 0;
+				line-height: 1.2;
+				font-weight: 700;
+				margin-bottom: 30px;
+			}
+
+			@media only screen and (max-width: 767px) {
+				padding: 0 25px;
+			}
+		}
+
+		.btn-style-2 {
+			margin: 20px 0;
+			@include center-table();
+			// @include flex-center();
+			width: 200px;
+			height: 60px;
+			text-align: center;
+			font-size: 1.3em;
+			padding: 20px 8px;
+			font-family: 'Raleway Regular';
+			color: #cbcbcb;
+
+			@media only screen and (min-width: 768px) and (max-width: 979px) {
+				height: 40px;
+				font-size: 1em;
+				padding: 10px 8px;
+			}
+		}
+	}
+}

@@ -1,0 +1,31 @@
+#section-seals {
+	.seals {
+		text-align: center;
+		padding: 25px 0;
+	}
+
+	img {
+		@include transition(all 0.3s ease-in-out);
+		max-height: 130px;
+
+		@media only screen and (min-width: 980px) and (max-width: 1199px) {
+			max-height: 120px;
+		}
+
+		@media only screen and (min-width: 768px) and (max-width: 979px) {
+			max-height: 100px;
+		}
+
+		@media only screen and (min-width: 481px) and (max-width: 767px) {
+			max-height: 65px;
+		}
+
+		@media only screen and (max-width: 480px) {
+			max-height: 40px;
+		}
+
+		&:hover {
+			@include scale(1.1);
+		}
+	}
+}
